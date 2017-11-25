@@ -9,6 +9,9 @@ from pygame.locals import *
 from keys import Keys
 from match import Match
 
+# TODO: create game screen
+# TODO:
+
 # init logging
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 # includes critical, error, warning, info, debug :)
@@ -22,7 +25,7 @@ pygame.mixer.init(frequency=44100, buffer=0)
 
 clock = pygame.time.Clock()
 
-sys_font = pygame.font.Font(".\8514oem.fon", 20)
+sys_font = pygame.font.Font("./8514oem.fon", 20)
 
 # ---- THE GAME ITSELF ---- #
 # gameplay params
