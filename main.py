@@ -7,7 +7,6 @@ import random
 import pygame
 from pygame.locals import *
 from keys import Keys
-from match import Match
 
 # TODO: create game screen
 # TODO:
@@ -18,24 +17,17 @@ logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
 # init pygame whatnot
 RESOLUTION = (854, 480)
-pygame.init()
-screen = pygame.display.set_mode(RESOLUTION)
-pygame.mixer.quit()
-pygame.mixer.init(frequency=44100, buffer=0)
-
-clock = pygame.time.Clock()
-
-sys_font = pygame.font.Font("./8514oem.fon", 20)
 
 # ---- THE GAME ITSELF ---- #
-# gameplay params
-AGREE_TIME = 0.5
-WIN_TIME = 6
-COOLDOWN_TIME = 2
-STALE_TIME = 5
-TOTAL_TIME = 35
-FAILURE_TIME = 0.5
-NUM_WINS = 3
+def initResources():
+    pygame.init()
+    screen = pygame.display.set_mode(RESOLUTION)
+    pygame.mixer.quit()
+    pygame.mixer.init(frequency=44100, buffer=0)
+
+    clock = pygame.time.Clock()
+
+    sys_font = pygame.font.Font("./8514oem.fon", 20)
 
 # visual params
 p_list_rect = pygame.Rect((0, 0), (screen.get_width(), screen.get_height()))
@@ -53,11 +45,8 @@ shadow_dist = screen.get_width() * 0.005
 
 # main classes
 keys = Keys()
-match = Match(AGREE_TIME, WIN_TIME, COOLDOWN_TIME, STALE_TIME, TOTAL_TIME, FAILURE_TIME, NUM_WINS,
-              keys, p_list_rect, scoreboard_rect, top_rect, top_rect_left, top_rect_right, game_rect, bottom_rect, shadow_dist, sys_font)
 
-# the loop
-while 1:
+def gameLoop():
   delta_t = clock.tick(60)
 
   # key stuff
@@ -76,9 +65,13 @@ while 1:
 
   # update stuff
   if not keys.p_toggle:
-    match.match_stuff(delta_t)
+    runTick(delta_t)
 
-  # render stuff
-  match.render_stuff(screen)
+  # prepare next frame for display
+  drawGame(screen)
 
   pygame.display.flip()
+
+if __name__ == '__main__':
+    while True:
+      gameLoop()
