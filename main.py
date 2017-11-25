@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # WHY DO YOU HATE IMPORTING THINGS?
 # ---- NECESSARY EVILS ---- #
 # important things
