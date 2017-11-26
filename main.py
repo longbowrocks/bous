@@ -34,15 +34,6 @@ def init_resources():
     #
     # sys_font = pygame.font.Font("./8514oem.fon", 20)
 
-def get_planets(count):
-    planets = []
-    for idx in range(count):
-        planets += Planet.createNonOverlapping(planets)
-    return planets
-
-def get_player():
-    return pygame.Rect
-
 def game_loop():
     delta_t = clock.tick(60)
 

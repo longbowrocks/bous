@@ -1,4 +1,5 @@
 from gameColor import GameColor
+import random
 
 MIN_PLANET_SIZE = 20
 MAX_PLANET_SIZE = 100
