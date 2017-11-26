@@ -6,6 +6,7 @@ import pygame
 from pygame.locals import *
 from keys import Keys
 from game import Game
+from constants import RESOLUTION
 
 # TODO: create game screen
 # TODO:
@@ -13,9 +14,6 @@ from game import Game
 # init logging
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 # includes critical, error, warning, info, debug :)
-
-# init pygame whatnot
-RESOLUTION = (854, 480)
 
 # main classes
 keys = Keys()

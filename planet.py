@@ -1,9 +1,7 @@
 from gameColor import GameColor
 import random
-from main import RESOLUTION
+from constants import RESOLUTION, MIN_PLANET_SIZE, MAX_PLANET_SIZE
 
-MIN_PLANET_SIZE = 20
-MAX_PLANET_SIZE = 100
 
 class Planet():
     def __init__(self, radius, pos, color):
