@@ -1,4 +1,5 @@
 from gameColor import GameColor
+import random
 from main import RESOLUTION
 
 MIN_PLANET_SIZE = 20
