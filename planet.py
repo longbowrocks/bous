@@ -12,7 +12,19 @@ class Planet():
 
     @staticmethod
     def create_non_overlapping(existing_planets):
-        radius = random.randint(MIN_PLANET_SIZE, MAX_PLANET_SIZE)
-        pos = (random.randint(0, RESOLUTION[0]),random.randint(0, RESOLUTION[1]))
+        overlaps = True
+        while overlaps and num_tries < 100:
+            pos = get_random_legal_position()
+            radius = random.randint(MIN_PLANET_SIZE, MAX_PLANET_SIZE)
+            overlaps = False
+        if num_tries >= 100:
+            return Planet(MIN_PLANET_SIZE, (0, 0), GameColor.White)
         color = GameColor.Red
         return Planet(radius, pos, color)
+
+    @staticmethod
+    def get_random_position():
+        return (
+            random.randint(0, RESOLUTION[0] - MIN_PLANET_SIZE),
+            random.randint(0, RESOLUTION[1] - MIN_PLANET_SIZE)
+        )
