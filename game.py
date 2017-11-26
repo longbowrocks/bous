@@ -4,6 +4,7 @@ import pygame
 from pygame.locals import *
 from gameColor import GameColor
 from planet import Planet
+from arrow import Arrow
 from player import Player
 
 class Game:
@@ -18,6 +19,7 @@ class Game:
         # init
         self.planets = self.init_planets(5)
         self.players = self.init_players(2)
+        self.arrows = [Arrow((50,50), (0.1,0.1), GameColor.Red)]
 
         self.player = self.players[0]
 
@@ -31,13 +33,18 @@ class Game:
         return [Player(random.choice(self.planets)) for idx in range(count)]
 
     def loop(self):
-        pass
-        # for player in self.players:
-        #     player.tick()
+        for arrow in self.arrows:
+            arrow.tick(self.planets)
+
+        #for player in self.players:
+        #    player.tick()
 
     def draw(self, screen):
         for planet in self.planets:
             planet.draw(screen)
+
+        for arrow in self.arrows:
+            arrow.draw(screen)
 
         for player in self.players:
             player.draw(screen)

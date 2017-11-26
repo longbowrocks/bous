@@ -8,7 +8,7 @@ class Planet():
     def __init__(self, radius, pos, color):
         self.radius = radius
         self.pos = pos
-        self.gravity = 1.0
+        self.gravity = 2.0
         self.color = color
 
     @staticmethod
