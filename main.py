@@ -6,6 +6,7 @@ import logging, sys
 import random
 import pygame
 from pygame.locals import *
+from planet import Planet
 from keys import Keys
 
 # TODO: create game screen
@@ -23,7 +24,7 @@ keys = Keys()
 
 
 # ---- THE GAME ITSELF ---- #
-def initResources():
+def init_resources():
     pygame.init()
     screen = pygame.display.set_mode(RESOLUTION)
     pygame.mixer.quit()
@@ -33,16 +34,16 @@ def initResources():
 
     sys_font = pygame.font.Font("./8514oem.fon", 20)
 
-def getPlanets(count):
+def get_planets(count):
     planets = []
     for idx in range(count):
-        planets += {'color': 'random', 'radius': random.randint(MIN_PLANET_SIZE, MAX_PLANET_SIZE), 'pos': getPlanetPos()}
+        planets += Planet.createNonOverlapping(planets)
     return planets
 
-def getPlayer():
+def get_player():
     return pygame.Rect
 
-def gameLoop():
+def game_loop():
   delta_t = clock.tick(60)
 
   # key stuff
