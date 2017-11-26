@@ -7,6 +7,7 @@ class Planet():
     def __init__(self, radius, pos, color):
         self.radius = radius
         self.pos = pos
+        self.gravity = 1.0
         self.color = color
 
     @staticmethod
@@ -34,3 +35,6 @@ class Planet():
     def get_edge_pos(planet, angle):
         return (planet.pos[0] + planet.radius * math.cos(angle),
                 planet.pos[1] + planet.radius * math.sin(angle))
+
+    def draw(self, screen):
+        pygame.draw.circle(screen, self.color, self.pos, self.radius)
