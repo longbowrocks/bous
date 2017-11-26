@@ -1,5 +1,6 @@
 from gameColor import GameColor
-import random
+import random, math
+import pygame
 from constants import RESOLUTION, MIN_PLANET_SIZE, MAX_PLANET_SIZE
 
 
@@ -33,8 +34,8 @@ class Planet():
 
     @staticmethod
     def get_edge_pos(planet, angle):
-        return (planet.pos[0] + planet.radius * math.cos(angle),
-                planet.pos[1] + planet.radius * math.sin(angle))
+        return (int(planet.pos[0] + planet.radius * math.cos(angle)),
+                int(planet.pos[1] + planet.radius * math.sin(angle)))
 
     def draw(self, screen):
         pygame.draw.circle(screen, self.color, self.pos, self.radius)
