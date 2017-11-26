@@ -37,11 +37,8 @@ def init_resources():
 def get_planets(count):
     planets = []
     for idx in range(count):
-        planets += Planet.createNonOverlapping(planets)
+        planets += Planet.create_non_overlapping(planets)
     return planets
-
-def get_player():
-    return pygame.Rect
 
 def game_loop():
   delta_t = clock.tick(60)
@@ -62,10 +59,10 @@ def game_loop():
 
   # update stuff
   if not keys.p_toggle:
-    runTick(delta_t)
+    run_tick(delta_t)
 
   # prepare next frame for display
-  drawGame(screen)
+  draw_game(screen)
 
   pygame.display.flip()
 
