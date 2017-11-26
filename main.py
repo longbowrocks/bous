@@ -29,22 +29,23 @@ def initResources():
 
     sys_font = pygame.font.Font("./8514oem.fon", 20)
 
-# visual params
-p_list_rect = pygame.Rect((0, 0), (screen.get_width(), screen.get_height()))
-scoreboard_rect = pygame.Rect((screen.get_width() * 0.3125, screen.get_height() * 0.1), (screen.get_width() * 0.375, screen.get_height() * 0.8))
+def getResources():
+    # visual params
+    p_list_rect = pygame.Rect((0, 0), (screen.get_width(), screen.get_height()))
+    scoreboard_rect = pygame.Rect((screen.get_width() * 0.3125, screen.get_height() * 0.1), (screen.get_width() * 0.375, screen.get_height() * 0.8))
 
-top_rect = pygame.Rect(0, 0, screen.get_width(), screen.get_height() * 0.2)
-top_rect_left = pygame.Rect(0, 0, screen.get_width() / 2, top_rect.height)
-top_rect_right = pygame.Rect(screen.get_width() / 2, 0, screen.get_width() / 2, top_rect.height)
+    top_rect = pygame.Rect(0, 0, screen.get_width(), screen.get_height() * 0.2)
+    top_rect_left = pygame.Rect(0, 0, screen.get_width() / 2, top_rect.height)
+    top_rect_right = pygame.Rect(screen.get_width() / 2, 0, screen.get_width() / 2, top_rect.height)
 
-game_rect = pygame.Rect(0, top_rect.bottom, screen.get_width(), screen.get_height() * 0.7)
+    game_rect = pygame.Rect(0, top_rect.bottom, screen.get_width(), screen.get_height() * 0.7)
 
-bottom_rect = pygame.Rect(0, game_rect.bottom, screen.get_width(), screen.get_height() * 0.1)
+    bottom_rect = pygame.Rect(0, game_rect.bottom, screen.get_width(), screen.get_height() * 0.1)
 
-shadow_dist = screen.get_width() * 0.005
+    shadow_dist = screen.get_width() * 0.005
 
-# main classes
-keys = Keys()
+    # main classes
+    keys = Keys()
 
 def gameLoop():
   delta_t = clock.tick(60)
