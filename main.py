@@ -46,7 +46,7 @@ def gameLoop():
   delta_t = clock.tick(60)
 
   # key stuff
-  keys.update(pygame.event.get([KEYDOWN, KEYUP]), lambda char: match.p_list.input(char))
+  keys.update(pygame.event.get([KEYDOWN, KEYUP]))
   for event in pygame.event.get():
     if event.type == QUIT:
       pygame.quit()
