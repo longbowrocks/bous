@@ -8,16 +8,16 @@ from keys import Keys
 from game import Game
 from constants import RESOLUTION
 
-# TODO: create game screen
-# TODO: draw planets
-# TODO: create a nonoverlapping system of planets
-# TODO: add game ticks
+# xTODO: create game screen
+# xTODO: draw planets
+# xTODO: create a nonoverlapping system of planets
+# xTODO: add game ticks
 # TODO: draw moving arrow
 # TODO: add planet gravity and make it affect arrows
 # TODO: add collision between players, arrows, and planets
 # TODO: draw path behind arrow
 # TODO: draw path ahead of arrow
-# TODO: 
+# TODO:
 
 # init logging
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
