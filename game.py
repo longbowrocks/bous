@@ -6,6 +6,8 @@ from gameColor import GameColor
 from planet import Planet
 
 class Game:
+
+
     def __init__(self, keys):
         # -- CONTROLS --
         self.keys = keys
@@ -14,20 +16,20 @@ class Game:
         self.reset()
 
     def reset(self):
-        pass
+        # init
+        self.planets = init_planets()
+        self.players = init_players()
 
+        self.player = players[0]
 
-    def get_planets(self, count):
-        planets = []
-        for idx in range(count):
-            planets.append(Planet.createNonOverlapping(planets))
-        return planets
+    def init_planets(self, count):
+        return [Planet.create_non_overlapping(planets) for idx in count]
 
-    def get_player(self):
-        return pygame.Rect
+    def init_players(self, count):
+        return [pygame.Rect for idx in count]
 
     def loop(self):
-        planets = self.get_planets(5)
-        players = [self.get_player() for i in range(2)]
+        #
 
-        # and the rest
+    def draw(self, screen):
+        
