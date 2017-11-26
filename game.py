@@ -3,13 +3,18 @@ import random, math
 import pygame
 from pygame.locals import *
 from gameColor import GameColor
-from shadowedPressable import *
-from textRenderer import TextRenderer
+from planet import Planet
 
 class Game:
-  def __init__(self, WIN_TIME, COOLDOWN_TIME, STALE_TIME, TOTAL_TIME, FAILURE_TIME, keys, game_rect, shadow_dist, sys_font):
-    # -- CONTROLS --
-    self.keys = keys
+    def __init__(self, keys):
+        # -- CONTROLS --
+        self.keys = keys
 
-    # -- GAMEPLAY --
-    self.reset()
+        # -- GAMEPLAY --
+        self.reset()
+
+    def loop(self):
+        planets = get_planets(5)
+        players = [get_player() for i in range(2)]
+
+        # and the rest
