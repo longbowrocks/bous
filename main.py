@@ -24,8 +24,9 @@ def init_resources():
     screen = pygame.display.set_mode(RESOLUTION)
     pygame.mixer.quit()
     pygame.mixer.init(frequency=44100, buffer=0)
+    return screen
 
-def key_stuff():
+def key_stuff(screen):
     # key stuff
     keys.update(pygame.event.get([KEYDOWN, KEYUP]))
     for event in pygame.event.get():
@@ -42,17 +43,17 @@ def key_stuff():
 
     # update stuff
     if not keys.p_toggle:
-        runTick(delta_t)
+        pass#runTick(delta_t)
 
 if __name__ == '__main__':
     # Init stuff
-    init_resources()
+    screen = init_resources()
 
     game = Game(keys)
 
     # Loop stuff
     while True:
-        key_stuff()
+        key_stuff(screen)
 
         game.loop()
         game.draw(screen)

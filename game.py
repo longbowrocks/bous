@@ -20,7 +20,7 @@ class Game:
     def get_planets(self, count):
         planets = []
         for idx in range(count):
-            planets.append(Planet.createNonOverlapping(planets))
+            planets.append(Planet.create_non_overlapping(planets))
         return planets
 
     def get_player(self):
