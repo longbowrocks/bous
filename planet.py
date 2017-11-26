@@ -29,3 +29,8 @@ class Planet():
             random.randint(0, RESOLUTION[0] - MIN_PLANET_SIZE),
             random.randint(0, RESOLUTION[1] - MIN_PLANET_SIZE)
         )
+
+    @staticmethod
+    def get_edge_pos(planet, angle):
+        return (planet.pos[0] + planet.radius * math.cos(angle),
+                planet.pos[1] + planet.radius * math.sin(angle))

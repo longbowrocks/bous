@@ -6,8 +6,6 @@ from gameColor import GameColor
 from planet import Planet
 
 class Game:
-
-
     def __init__(self, keys):
         # -- CONTROLS --
         self.keys = keys
@@ -18,7 +16,7 @@ class Game:
     def reset(self):
         # init
         self.planets = self.init_planets(5)
-        self.players = self.init_players(2)
+        self.players = self.init_players(2, self.planets)
 
         self.player = self.players[0]
 
@@ -33,6 +31,12 @@ class Game:
 
     def loop(self):
         pass
+        # for player in self.players:
+        #     player.tick()
 
     def draw(self, screen):
-        pass
+        for planet in self.planets:
+            planet.draw(screen)
+
+        for player in self.players:
+            player.draw(screen)
