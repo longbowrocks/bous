@@ -18,7 +18,6 @@ logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 # main classes
 keys = Keys()
 
-
 # ---- THE GAME ITSELF ---- #
 def init_resources():
     pygame.init()
@@ -26,13 +25,7 @@ def init_resources():
     pygame.mixer.quit()
     pygame.mixer.init(frequency=44100, buffer=0)
 
-    # clock = pygame.time.Clock()
-    #
-    # sys_font = pygame.font.Font("./8514oem.fon", 20)
-
-def game_loop():
-    delta_t = clock.tick(60)
-
+def key_stuff():
     # key stuff
     keys.update(pygame.event.get([KEYDOWN, KEYUP]))
     for event in pygame.event.get():
@@ -51,11 +44,6 @@ def game_loop():
     if not keys.p_toggle:
         runTick(delta_t)
 
-    # prepare next frame for display
-    drawGame(screen)
-
-    pygame.display.flip()
-
 if __name__ == '__main__':
     # Init stuff
     init_resources()
@@ -64,4 +52,9 @@ if __name__ == '__main__':
 
     # Loop stuff
     while True:
+        key_stuff()
+
         game.loop()
+        game.draw(screen)
+
+        pygame.display.flip()
