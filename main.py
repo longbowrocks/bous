@@ -12,8 +12,8 @@ from constants import RESOLUTION
 # xTODO: draw planets
 # xTODO: create a nonoverlapping system of planets
 # xTODO: add game ticks
-# TODO: draw moving arrow
-# TODO: add planet gravity and make it affect arrows
+# xTODO: draw moving arrow
+# xTODO: add planet gravity and make it affect arrows
 # TODO: add collision between players, arrows, and planets
 # TODO: draw path behind arrow
 # TODO: draw path ahead of arrow

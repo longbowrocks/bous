@@ -4,10 +4,11 @@ import pygame
 
 
 class Arrow():
-    def __init__(self, pos, velocity, color):
+    def __init__(self, pos, velocity, color, player_id):
         self.pos = pos
         self.velocity = velocity
         self.color = color
+        self.player_id = player_id
         self.history = []
 
     def tick(self, planets):
@@ -33,3 +34,11 @@ class Arrow():
 
     def draw(self, screen):
         pygame.draw.circle(screen, self.color, to_int(self.pos), 2)
+
+    def collides_player(self, player):
+        return False
+
+    def collides_planet(self, planet):
+        if dist(self.pos, planet.pos) < planet.radius:
+            return True
+        return False
