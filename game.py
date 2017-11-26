@@ -32,4 +32,3 @@ class Game:
         #
 
     def draw(self, screen):
-        

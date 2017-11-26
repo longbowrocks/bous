@@ -1,0 +1,6 @@
+
+# init pygame whatnot
+RESOLUTION = (854, 480)
+
+MIN_PLANET_SIZE = 20
+MAX_PLANET_SIZE = 100

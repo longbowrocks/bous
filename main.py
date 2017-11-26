@@ -6,6 +6,7 @@ import pygame
 from pygame.locals import *
 from keys import Keys
 from game import Game
+from constants import RESOLUTION
 
 # TODO: create game screen
 # TODO:
@@ -13,9 +14,6 @@ from game import Game
 # init logging
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 # includes critical, error, warning, info, debug :)
-
-# init pygame whatnot
-RESOLUTION = (854, 480)
 
 # main classes
 keys = Keys()
@@ -26,8 +24,9 @@ def init_resources():
     screen = pygame.display.set_mode(RESOLUTION)
     pygame.mixer.quit()
     pygame.mixer.init(frequency=44100, buffer=0)
+    return screen
 
-def key_stuff():
+def key_stuff(screen):
     # key stuff
     keys.update(pygame.event.get([KEYDOWN, KEYUP]))
     for event in pygame.event.get():
@@ -44,17 +43,17 @@ def key_stuff():
 
     # update stuff
     if not keys.p_toggle:
-        runTick(delta_t)
+        pass#runTick(delta_t)
 
 if __name__ == '__main__':
     # Init stuff
-    init_resources()
+    screen = init_resources()
 
     game = Game(keys)
 
     # Loop stuff
     while True:
-        key_stuff()
+        key_stuff(screen)
 
         game.loop()
         game.draw(screen)
