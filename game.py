@@ -19,9 +19,9 @@ class Game:
         # init
         self.planets = self.init_planets(5)
         self.players = self.init_players(2)
-        self.arrows = [Arrow((50,50), (0.1,0.1), self.players[0].color, self.players[0].player_id)]
 
         self.player = self.players[0]
+        self.arrow = self.init_arrows(self.player)
 
     def init_planets(self, count):
         planets = []
@@ -32,28 +32,28 @@ class Game:
     def init_players(self, count):
         return [Player(random.choice(self.planets), idx) for idx in range(count)]
 
+    def init_arrows(self, player):
+        return Arrow((50,50), (random.random()*0.2,random.random()*0.2), player.color, player.player_id)
+
     def loop(self):
-        for arrow in self.arrows:
-            arrow.tick(self.planets)
+        self.arrow.tick(self.planets)
 
         #for player in self.players:
         #    player.tick()
 
         # Check collisions
-        for arrow in self.arrows:
-            for player in self.players:
-                if arrow.collides_player(player):
-                    pass # end flight/turn/life
-            for planet in self.planets:
-                if arrow.collides_planet(planet):
-                    pass # end flight/turn
+        for player in self.players:
+            if self.arrow.collides_player(player):
+                pass # end flight/turn/life
+        for planet in self.planets:
+            if self.arrow.collides_planet(planet):
+                self.arrow = self.init_arrows(self.player) # end flight/turn
 
     def draw(self, screen):
         for planet in self.planets:
             planet.draw(screen)
 
-        for arrow in self.arrows:
-            arrow.draw(screen)
+        self.arrow.draw(screen)
 
         for player in self.players:
             player.draw(screen)
